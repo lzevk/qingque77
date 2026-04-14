@@ -1,39 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>个人博客</title>
+    <!-- 适配移动端显示 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* 全局重置：消除默认边距，统一盒模型 */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
+
+        /* 页面整体布局：让页脚固定在底部 */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+        }
+
+        /* 头部区域：标题+返回按钮 */
         header {
+            background-color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* 按钮组样式：美化原生按钮 */
+        .button-group {
+            margin-bottom: 10px;
+        }
+
+        .button-group button {
+            padding: 6px 12px;
+            margin: 0 5px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #333;
+            transition: background-color 0.2s;
+        }
+
+        .button-group button:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 主内容区：居中显示，适配不同屏幕 */
+        main {
+            flex: 1; /* 占满中间剩余空间 */
+            padding: 20px;
+            max-width: 600px; /* 限制内容最大宽度 */
+            margin: 0 auto; /* 水平居中 */
+            width: 100%;
+        }
+
+        /* 访问码文本样式 */
+        .access-code {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* iframe容器：适配宽度，隐藏边框 */
+        .iframe-container {
+            width: 100%;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px; /* 可根据需要调整高度 */
+            border: none;
+            display: block;
+        }
+
+        /* 页脚样式：固定在底部 */
+        footer {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            font-size: 14px;
+            margin-top: auto; /* 自动推到页面底部 */
         }
-        h1 {
-            font-size: 36px;
-            margin: 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #f2f2f2;
-            padding: 10px;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-        nav ul li a {
+    </style>
+</head>
+<body>
+    <!-- 头部：标题+返回按钮 -->
+    <header>
+        <h1>其他</h1>
+        <div class="button-group">
+            <button id="goBackButton">返回上一页</button>
+            <button id="goHomeButton">返回首页</button>
+        </div>
+    </header>
+
+    <!-- 主内容区：访问码+蓝奏云iframe -->
+    <main>
+        <div class="access-code">访问码:7voh</div>
+        <div class="iframe-container">
+            <iframe src="https://qingque.lanzoui.com/b03whg89g" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </main>
+
+    <!-- 页脚：版权信息 -->
+    <footer>
+        &copy; 2023 青雀先生. All rights reserved.
+    </footer>
+
+    <!-- 交互脚本：合并到页面底部，避免DOM加载问题 -->
+    <script>
+        // 返回上一页功能
+        document.getElementById('goBackButton').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        // 返回首页功能
+        document.getElementById('goHomeButton').addEventListener('click', function() {
+            window.location.href = "/";
+        });
+    </script>
+</body>
+</html>
             color: #333;
             text-decoration: none;
             padding: 5px 10px;
